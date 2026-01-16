@@ -155,16 +155,3 @@ docker-compose up --build
 
 ---
 
-## Project Structure
-```text
-Opti-Quality/
-├── backend/            # FastAPI, Database, Detector, Trainer
-├── frontend/           # Streamlit Web Dashboard
-├── data/               # Persistent storage for images/labels
-├── models/             # YOLO Weights and fine-tuned versions
-├── scripts/            # Secondary simulation scripts
-├── Dockerfile.backend  # Container config for API
-├── Dockerfile.frontend # Container config for UI
-├── docker-compose.yml  # Orchestration
-└── run.py              # Single-command local startup
-```
