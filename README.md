@@ -1,11 +1,11 @@
 # Opti-Quality: Human-in-the-Loop Visual Inspection System
 
-## 1. Project Name
+##  Project Name
 **Opti-Quality: Human-in-the-Loop (HITL) Visual Inspection & Active Learning System**
 
 ---
-
-## 2. Problem Statement
+![Opti-Quality Core Dashboard UI](screenshots/image_0.png "Opti-Quality Core - Shop Floor View")
+##  Problem Statement
 In modern manufacturing, quality control requires high-speed and high-precision defect detection. However, static AI models often face two critical challenges:
 1.  **Edge Cases**: Unusual defects or lighting conditions can cause model uncertainty, leading to false negatives (missed defects).
 2.  **Model Drift**: Over time, changes in the production line (new materials, camera wear) cause the model's performance to degrade.
@@ -14,12 +14,26 @@ Relying solely on automated AI is risky, while relying solely on manual inspecti
 
 ---
 
-## 3. Solution Overview
+##  Solution Overview
 Opti-Quality is an end-to-end visual inspection system that implements an **Active Learning** workflow. It uses state-of-the-art vision models to automate 90%+ of inspections while routing "uncertain" cases to human experts. As experts verify these cases, the system uses that data to fine-tune itself, becoming smarter and more accurate over time.
 
 ---
+## Project Structure
+```text
+Opti-Quality/
+├── backend/            # FastAPI, Database, Detector, Trainer
+├── frontend/           # Streamlit Web Dashboard
+├── data/               # Persistent storage for images/labels
+├── models/             # YOLO Weights and fine-tuned versions
+├── scripts/            # Secondary simulation scripts
+├── Dockerfile.backend  # Container config for API
+├── Dockerfile.frontend # Container config for UI
+├── docker-compose.yml  # Orchestration
+└── run.py              # Single-command local startup
+```
 
-## 4. System Architecture
+
+##  System Architecture
 The system is built with a modern, microservices-ready stack:
 
 ```mermaid
@@ -43,7 +57,7 @@ graph TD
 
 ---
 
-## 5. Model Details
+##  Model Details
 -   **Model**: YOLOv11 (Nano variant for high-speed inference).
 -   **Pretrained or Fine-tuned?**: Starts as **Pretrained** (COCO weights) and is dynamically **Fine-tuned** via the dashboard's Active Learning loop.
 -   **Dataset Size and Source**: 
@@ -56,7 +70,7 @@ graph TD
 
 ---
 
-## 6. Human-in-the-Loop Workflow
+##  Human-in-the-Loop Workflow
 The HITL workflow ensures continuous quality improvement:
 1.  **Inference**: AI scans the product.
 2.  **Audit Check**: If the AI isn't certain, the case enters the **Annotator Queue**.
@@ -66,7 +80,7 @@ The HITL workflow ensures continuous quality improvement:
 
 ---
 
-## 7. Evaluation Metrics
+##  Evaluation Metrics
 Current model performance (YOLOv11n baseline):
 -   **mAP50-95**: ~0.37 (Global average on standard datasets).
 -   **Precision**: ~0.92 (High precision to avoid false alarms).
@@ -75,7 +89,7 @@ Current model performance (YOLOv11n baseline):
 
 ---
 
-## 8. API Endpoints
+##  API Endpoints
 ### `POST /upload/`
 Uploads an image for real-time inspection.
 -   **Response**: 
@@ -102,7 +116,7 @@ Calculates performance drop between baseline and recent scans.
 
 ---
 
-## 9. How to Run Locally
+##  How to Run Locally
 
 ### Option A: Local Python (Recommended for Dev)
 1.  **Clone the project** and navigate to the directory.
@@ -130,7 +144,7 @@ docker-compose up --build
 
 ---
 
-## 10. Limitations and Future Works
+##  Limitations and Future Works
 -   **Current Limitations**:
     -   retraining is CPU-heavy; recommended to run on systems with CUDA-enabled GPUs for faster cycles.
     -   SQLite is used for local state; production scaling would require PostgreSQL.
