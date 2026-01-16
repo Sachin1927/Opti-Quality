@@ -4,7 +4,7 @@
 **Opti-Quality: Human-in-the-Loop (HITL) Visual Inspection & Active Learning System**
 
 ---
-![Opti-Quality Core Dashboard UI](screenshots/<img width="1898" height="889" alt="Screenshot 2026-01-16 071402" src="https://github.com/user-attachments/assets/b52d11a9-5bef-41be-a460-a1a9bacba5f4" />
+/<img width="1898" height="889" alt="Screenshot 2026-01-16 071402" src="https://github.com/user-attachments/assets/b52d11a9-5bef-41be-a460-a1a9bacba5f4" />
  "Opti-Quality Core - Shop Floor View")
 ##  Problem Statement
 In modern manufacturing, quality control requires high-speed and high-precision defect detection. However, static AI models often face two critical challenges:
