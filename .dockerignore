@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/raw/*
+data/reviewed/*
+!data/raw/.gitkeep
+!data/reviewed/.gitkeep
+models/*.pt
+.git/
+.github/
+README.md
